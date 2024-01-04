@@ -36,6 +36,8 @@ build/
 ### Files
 # **/**/application.properties
 **/docs/*.md
+.github/assets/
+.github/docs/
 
 ### Folders
 aws/

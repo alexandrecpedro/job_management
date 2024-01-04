@@ -1,0 +1,21 @@
+name: Job Management Application
+
+on:
+  push:
+    branches: [main]
+
+# WORKFLOWS (or JOBS)
+jobs:
+  build:
+    # Github already has its extension
+    runs-on: ubuntu-latest
+    steps:
+      # Use checkout to clone a repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # Setup Java
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
