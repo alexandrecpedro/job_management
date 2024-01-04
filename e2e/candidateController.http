@@ -1,6 +1,8 @@
 # CANDIDATE CONTROLLER
 # Global variables
 @baseUrl = http://localhost:8080/candidate
+# (1) Render (Cloud Service)
+# @baseUrl = https://job-management-ammv.onrender.com/candidate
 
 @authToken = {{authenticate.response.body.access_token}}
 

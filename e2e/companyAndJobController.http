@@ -1,6 +1,8 @@
 # COMPANY CONTROLLER | JOB CONTROLLER
 # Global variables
 @baseUrl = http://localhost:8080/company
+# (1) Render (Cloud Service)
+# @baseUrl = https://job-management-ammv.onrender.com/company
 
 @authToken = {{authenticate.response.body.access_token}}
 

@@ -36,3 +36,6 @@ build/
 ### Files
 # **/**/application.properties
 **/docs/*.md
+
+### Folders
+aws/

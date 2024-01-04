@@ -21,6 +21,7 @@
     - [Módulo 4 - Documentação](#módulo-4---documentação)
     - [Módulo 5 - Testes e Qualidade de Código](#módulo-5---testes-e-qualidade-de-código)
     - [Módulo 6 - Implantação e Monitoramento](#módulo-6---implantação-e-monitoramento)
+    - [Módulo 7 - Continuous Integration e Continuous Delivery](#módulo-7---continuous-integration-e-continuous-delivery)
   - [Tecnologias](#tecnologias)
     - [Principais Bibliotecas (Packages)](#principais-bibliotecas-packages)
   - [Licença](#licença)
@@ -44,6 +45,9 @@ Aprender sobre como inserir testes dentro da aplicação, utilizando JUnit e Moc
 ### Módulo 6 - Implantação e Monitoramento
 Utilização do Spring Actuator para monitoramento, junto a outras ferramentas como Prometheus e o Grafana, de forma visual e interativa.
 
+### Módulo 7 - Continuous Integration e Continuous Delivery
+Utilização do Render (Cloud Application Hosting), AWS e Github Actions para fluxo de CI/CD.
+
 ## Tecnologias
 
 ### Principais Bibliotecas (Packages)
@@ -60,6 +64,9 @@ Utilização do Spring Actuator para monitoramento, junto a outras ferramentas c
 - [`Sonar`](https://www.sonarsource.com/)
 - [`Prometheus`](https://prometheus.io/)
 - [`Grafana`](https://grafana.com/)
+- [`Render Cloud`](https://render.com/)
+- [`AWS`](https://aws.amazon.com/)
+- [`Github Actions`](https://docs.github.com/en/actions)
 
 > Mais informações sobre [dependências do projeto](./.github/docs/a_dependencies.md).
 >
