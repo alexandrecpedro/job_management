@@ -1,0 +1,16 @@
+global:
+  # How frequently to scrape targets by default
+  scrape_interval: 6s
+
+# A list of scrape configurations
+scrape_configs:
+  # The job name assigned to scraped metrics by default
+  - job_name: "job_management"
+    # The HTTP resource path on which to fetch metrics from targets
+    metrics_path: "/actuator/prometheus"
+    # List of labeled statically configured targets for this job
+    static_configs:
+      # File-based service discovery provides a more generic way to configure static targets and serves as an interface to plug in custom service discovery mechanisms
+      - targets: ["host.docker.internal:8080"]
+        labels:
+          application: "job_management"

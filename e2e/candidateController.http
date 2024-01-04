@@ -1,0 +1,56 @@
+# CANDIDATE CONTROLLER
+# Global variables
+@baseUrl = http://localhost:8080/candidate
+
+@authToken = {{authenticate.response.body.access_token}}
+
+# (1) Register a Candidate
+# @name register_candidate
+POST {{baseUrl}}/
+Accept: */*
+Content-Type: application/json
+
+{
+  "username": "maria",
+  "name": "Maria de Souza",
+  "email": "maria@gmail.com",
+  "password": "1234567890",
+  "description": "Java Developer Jr looking for the first opportunity"
+}
+
+###
+# (2) Login as a Candidate
+# @name authenticate
+POST {{baseUrl}}/auth
+Content-Type: application/json
+
+{
+  "username": "maria",
+  "password": "1234567890"
+}
+
+###
+# (3) Candidate's Profile information
+# @name candidate_profile
+GET {{baseUrl}}/
+Accept: */*
+Authorization: Bearer {{authToken}}
+
+###
+# (4) List all jobs available for the candidate
+# @name candidate_job_list
+GET {{baseUrl}}/job?filter=java
+Accept: */*
+Authorization: Bearer {{authToken}}
+
+### 
+# (5) Candidate apply for a job
+# @name candidate_apply_job
+POST {{baseUrl}}/job/apply
+Accept: application/json
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "f7682bb6-bd7a-4cff-9df6-c73c4d7a5d6a"
+}

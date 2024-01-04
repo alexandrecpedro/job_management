@@ -1,0 +1,45 @@
+# COMPANY CONTROLLER | JOB CONTROLLER
+# Global variables
+@baseUrl = http://localhost:8080/company
+
+@authToken = {{authenticate.response.body.access_token}}
+
+# (1) Register a company
+# @name register_company
+POST {{baseUrl}}/
+Content-Type: application/json
+
+{
+  "username": "java_company",
+  "password": "1234567890",
+  "email": "java@company.com.br",
+  "name": "Java Jobs",
+  "website": "https://javajobs.com.br",
+  "description": "Company responsible for Java job openings"
+}
+
+###
+# (2) Company authentication
+# @name authenticate
+POST {{baseUrl}}/auth
+Content-Type: application/json
+
+{
+  "username": "java_company",
+  "password": "1234567890"
+}
+
+
+###
+# (3) Register a job
+# @name register_job
+POST {{baseUrl}}/job/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "description": "Java Developer looking for the opportunity to work with Spring Boot 3.0",
+  "benefits": "GymPass, Health Insurance, Day off at birthday, Meal Voucher and Food Voucher",
+  "level": "JUNIOR",
+  "company_id": "634e4cf1-1ca3-43e2-a9e6-b6e2f44b34c8"
+}
