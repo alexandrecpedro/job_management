@@ -33,3 +33,17 @@ jobs:
       # Publish Docker image
       - name: Publish image
         run: docker push alexandrecpedro/job_management
+  deploy:
+    # Only executes if build ends successfully
+    needs: build
+    runs-on: self-hosted
+    steps:
+      # Get image from DockerHub
+      - name: Pull image DockerHub
+        run: docker pull alexandrecpedro/job_management:latest
+      # Remove the existing conatiner
+      - name: Remove container
+        run: docker rm -f job_management
+      # Create and Run the downloaded container
+      - name: Run Docker container
+        run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}} --name job_management alexandrecpedro/job_management:latest
