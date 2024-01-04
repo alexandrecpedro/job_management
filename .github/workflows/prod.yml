@@ -12,6 +12,7 @@ jobs:
     steps:
       # Use checkout to clone a repository
       - name: Checkout code
+        # PS: Uses => only to execute an action
         uses: actions/checkout@v4
       # Setup Java
       - name: Setup Java
@@ -19,3 +20,16 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+      # Build the project
+      - name: Build project
+        # Generate .jar from application
+        run: mvn clean install
+      # Login Docker
+      - name: Login Docker
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+      # Build Docker Image
+      - name: Build Docker image
+        run: docker build -t alexandrecpedro/job_management .
+      # Publish Docker image
+      - name: Publish image
+        run: docker push alexandrecpedro/job_management
